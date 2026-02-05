@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { AppView } from '../types';
+import { AppView } from '../types.ts';
 
 const Dashboard: React.FC<{ setView: (v: AppView) => void }> = ({ setView }) => {
   const stats = [

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { analyzeMedia, transcribeAudio, generateTTS } from '../services/geminiService';
+import { analyzeMedia, transcribeAudio, generateTTS } from '../services/geminiService.ts';
 
 const AnalysisHub: React.FC = () => {
   const [file, setFile] = useState<{ data: string, type: string } | null>(null);

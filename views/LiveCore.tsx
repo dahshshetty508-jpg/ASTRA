@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { GoogleGenAI, Modality } from '@google/genai';
-import { decode, decodeAudioData, encode } from '../services/geminiService';
+import { decode, decodeAudioData, encode } from '../services/geminiService.ts';
 
 const LiveCore: React.FC = () => {
   const [active, setActive] = useState(false);

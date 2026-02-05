@@ -19,6 +19,14 @@
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-thumb { background: #222; border-radius: 10px; }
     </style>
+    <script>
+      // Robust process.env shim for browser environments
+      window.process = window.process || {
+        env: {
+          API_KEY: ""
+        }
+      };
+    </script>
 <script type="importmap">
 {
   "imports": {

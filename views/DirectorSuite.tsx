@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { generateVideoVeo } from '../services/geminiService';
+import { generateVideoVeo } from '../services/geminiService.ts';
 
 interface DirectorProps {
   apiKeyReady: boolean;

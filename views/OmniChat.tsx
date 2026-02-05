@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
-import { chatWithModel } from '../services/geminiService';
-import { ChatMessage, AVAILABLE_MODELS } from '../types';
+import { chatWithModel } from '../services/geminiService.ts';
+import { ChatMessage, AVAILABLE_MODELS } from '../types.ts';
 
 const OmniChat: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);

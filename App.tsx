@@ -20,7 +20,6 @@ import {
  * Main App component for Vexa AI.
  * Handles navigation between different AI modules and global state.
  */
-// Fix for Error: Type '() => void' is not assignable to type 'FC<{}>' by ensuring a valid return.
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<AppView>(AppView.DASHBOARD);
   const [apiKeyReady, setApiKeyReady] = useState(false);
@@ -240,5 +239,4 @@ const App: React.FC = () => {
   );
 };
 
-// Export default App to resolve "no default export" error in index.tsx
 export default App;

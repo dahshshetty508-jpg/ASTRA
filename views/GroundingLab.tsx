@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { groundSearch, groundMaps } from '../services/geminiService';
+import { groundSearch, groundMaps } from '../services/geminiService.ts';
 
 const GroundingLab: React.FC = () => {
   const [query, setQuery] = useState('');
