@@ -4,9 +4,9 @@ import { AppView } from '../types';
 
 const Dashboard: React.FC<{ setView: (v: AppView) => void }> = ({ setView }) => {
   const stats = [
-    { label: 'Latency', value: '38ms' },
-    { label: 'Protocol', value: 'Gemini 3.0 Pro' },
-    { label: 'Intelligence', value: 'High Density' },
+    { label: 'Latency', value: '31ms' },
+    { label: 'Protocol', value: 'Vexa v5.0' },
+    { label: 'Density', value: 'Ultra-High' },
   ];
 
   const cards = [
@@ -20,13 +20,13 @@ const Dashboard: React.FC<{ setView: (v: AppView) => void }> = ({ setView }) => 
     <div className="space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700 max-w-6xl mx-auto">
       <header className="space-y-4">
         <div className="inline-block px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">
-          Environment Synchronized
+          Neural State: Online
         </div>
         <h1 className="text-5xl md:text-7xl font-medium tracking-tight bg-gradient-to-b from-white to-gray-600 bg-clip-text text-transparent">
-          The Future, Unified.
+          Vexa: Intelligence Refined.
         </h1>
         <p className="text-gray-500 text-xl font-light tracking-wide max-w-2xl">
-          Welcome to Astra. A centralized intelligence layer harnessing the complete power of Gemini 3.0. Created by DAKSH.
+          A centralized intelligence layer harnessing the complete multiverse of AI. Created by DAKSH.
         </p>
       </header>
 
@@ -87,14 +87,14 @@ const Dashboard: React.FC<{ setView: (v: AppView) => void }> = ({ setView }) => 
                onClick={() => setView(AppView.CHATS)}
                className="bg-white text-black px-8 py-4 rounded-2xl font-black text-xs uppercase tracking-[0.2em] hover:bg-gray-200 transition-all active:scale-95 shadow-2xl"
             >
-              Astra Reasoning
+              Vexa Reasoning
             </button>
           </div>
         </div>
       </div>
       
       <div className="text-center pb-12 opacity-20">
-        <p className="text-[10px] font-black uppercase tracking-[0.5em]">Astra Protocol • DAKSH Systems</p>
+        <p className="text-[10px] font-black uppercase tracking-[0.5em]">Vexa Protocol • DAKSH Systems</p>
       </div>
     </div>
   );

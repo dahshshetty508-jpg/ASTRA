@@ -40,9 +40,11 @@ export function encode(bytes: Uint8Array): string {
   return btoa(binary);
 }
 
+const getApiKey = () => process.env?.API_KEY || '';
+
 // Model wrappers
 export const generateImagePro = async (prompt: string, aspectRatio: string = "1:1", imageSize: string = "1K") => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const response = await ai.models.generateContent({
     model: 'gemini-3-pro-image-preview',
     contents: { parts: [{ text: prompt }] },
@@ -63,7 +65,7 @@ export const generateImagePro = async (prompt: string, aspectRatio: string = "1:
 };
 
 export const editImageFlash = async (imageB64: string, prompt: string) => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const response = await ai.models.generateContent({
     model: 'gemini-2.5-flash-image',
     contents: {
@@ -83,7 +85,7 @@ export const editImageFlash = async (imageB64: string, prompt: string) => {
 };
 
 export const generateVideoVeo = async (prompt: string, aspectRatio: string = '16:9', imageB64?: string) => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   
   const payload: any = {
     model: 'veo-3.1-fast-generate-preview',
@@ -112,7 +114,7 @@ export const generateVideoVeo = async (prompt: string, aspectRatio: string = '16
   const downloadLink = operation.response?.generatedVideos?.[0]?.video?.uri;
   if (!downloadLink) throw new Error("Video generation failed");
   
-  const res = await fetch(`${downloadLink}&key=${process.env.API_KEY}`);
+  const res = await fetch(`${downloadLink}&key=${getApiKey()}`);
   const blob = await res.blob();
   return URL.createObjectURL(blob);
 };
@@ -125,10 +127,10 @@ export const chatWithModel = async (
   systemInstruction?: string,
   useSearch: boolean = false
 ) => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const config: any = {};
   
-  if (thinking && model.includes('pro')) {
+  if (thinking && (model.includes('pro') || model.includes('gpt-5') || model.includes('opus'))) {
     config.thinkingConfig = { thinkingBudget: 32768 };
   }
 
@@ -153,7 +155,7 @@ export const chatWithModel = async (
 };
 
 export const groundSearch = async (prompt: string) => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const response = await ai.models.generateContent({
     model: 'gemini-3-flash-preview',
     contents: prompt,
@@ -170,7 +172,7 @@ export const groundSearch = async (prompt: string) => {
 };
 
 export const groundMaps = async (prompt: string, lat?: number, lng?: number) => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const config: any = {
     tools: [{ googleMaps: {} }, { googleSearch: {} }]
   };
@@ -201,7 +203,7 @@ export const groundMaps = async (prompt: string, lat?: number, lng?: number) => 
 };
 
 export const transcribeAudio = async (audioB64: string) => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const response = await ai.models.generateContent({
     model: 'gemini-3-flash-preview',
     contents: {
@@ -215,7 +217,7 @@ export const transcribeAudio = async (audioB64: string) => {
 };
 
 export const analyzeMedia = async (mediaB64: string, mimeType: string, prompt: string) => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const response = await ai.models.generateContent({
     model: 'gemini-3-pro-preview',
     contents: {
@@ -229,7 +231,7 @@ export const analyzeMedia = async (mediaB64: string, mimeType: string, prompt: s
 };
 
 export const generateTTS = async (text: string) => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: getApiKey() });
   const response = await ai.models.generateContent({
     model: "gemini-2.5-flash-preview-tts",
     contents: [{ parts: [{ text }] }],

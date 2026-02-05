@@ -10,7 +10,7 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ currentView, setView }) => {
   const items = [
     { id: AppView.DASHBOARD, icon: '✦', label: 'Dashboard' },
-    { id: AppView.CHATS, icon: '💬', label: 'Astra Chat' },
+    { id: AppView.CHATS, icon: '💬', label: 'Vexa Chat' },
     { id: AppView.IMAGERY, icon: '🎨', label: 'Visual Studio' },
     { id: AppView.DIRECTOR, icon: '🎬', label: 'Director Suite' },
     { id: AppView.LIVE, icon: '🎙️', label: 'Live Core' },
@@ -21,9 +21,9 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, setView }) => {
   return (
     <div className="w-72 bg-[#0a0a0b] border-r border-white/5 h-screen flex flex-col p-6 shadow-2xl">
       <div className="mb-12 flex items-center gap-4 px-2">
-        <div className="w-10 h-10 border-2 border-white rounded-xl flex items-center justify-center font-black text-xl">A</div>
+        <div className="w-10 h-10 border-2 border-white rounded-xl flex items-center justify-center font-black text-xl">V</div>
         <div className="flex flex-col">
-          <span className="font-bold text-lg tracking-tight">Astra</span>
+          <span className="font-bold text-lg tracking-tight">Vexa</span>
           <span className="text-[9px] text-gray-600 font-black uppercase tracking-widest">Intelligence</span>
         </div>
       </div>
@@ -48,7 +48,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, setView }) => {
 
       <div className="mt-auto pt-8 border-t border-white/5 px-2">
         <div className="flex flex-col gap-1 opacity-40 hover:opacity-100 transition-opacity cursor-default">
-          <div className="text-[10px] font-black uppercase tracking-[0.25em]">Astra Core v4.0</div>
+          <div className="text-[10px] font-black uppercase tracking-[0.25em]">Vexa Core v5.0</div>
           <div className="text-[9px] font-bold text-gray-600 uppercase tracking-widest">Created by DAKSH</div>
         </div>
       </div>
